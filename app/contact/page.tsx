@@ -42,22 +42,22 @@ export default function Example() {
 									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
 									aria-hidden="true"
 								/>
-								<span className="relative z-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 text-xs sm:text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
+								<span className="relative z-10 flex items-center justify-center w-12 h-12 sm:w-12 sm:h-12 text-base sm:text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
 									{s.icon}
 								</span>{" "}
 							<div className="z-10 flex flex-col items-center max-w-full px-2 sm:px-3">
 								{s.label === "Email" ? (
-									<span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display text-center leading-tight">
+									<span className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display text-center leading-tight">
 										argyris.kalampoukas
 										<br />
 										@gmail.com
 									</span>
 								) : (
-									<span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display truncate max-w-xs">
+									<span className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display truncate max-w-xs">
 										{s.handle}
 									</span>
 								)}
-								<span className="mt-2 sm:mt-3 md:mt-4 text-xs sm:text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
+								<span className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 										{s.label}
 									</span>
 								</div>
