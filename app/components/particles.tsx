@@ -78,6 +78,9 @@ export default function Particles({
 		dx: number;
 		dy: number;
 		magnetism: number;
+		color: string;
+		vx: number;
+		vy: number;
 	};
 
 	const resizeCanvas = () => {
@@ -98,12 +101,16 @@ export default function Particles({
 		const y = Math.floor(Math.random() * canvasSize.current.h);
 		const translateX = 0;
 		const translateY = 0;
-		const size = Math.floor(Math.random() * 2) + 0.1;
+		const size = Math.random() * 2.5 + 0.5;
 		const alpha = 0;
-		const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
-		const dx = (Math.random() - 0.5) * 0.2;
-		const dy = (Math.random() - 0.5) * 0.2;
-		const magnetism = 0.1 + Math.random() * 4;
+		const targetAlpha = parseFloat((Math.random() * 0.5 + 0.2).toFixed(1));
+		const dx = (Math.random() - 0.5) * 0.3;
+		const dy = (Math.random() - 0.5) * 0.3;
+		const magnetism = 0.1 + Math.random() * 6;
+		const hue = Math.random() * 60 + 180; // blue to cyan hues
+		const color = `hsl(${hue}, ${50 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
+		const vx = (Math.random() - 0.5) * 0.1;
+		const vy = (Math.random() - 0.5) * 0.1;
 		return {
 			x,
 			y,
@@ -115,17 +122,32 @@ export default function Particles({
 			dx,
 			dy,
 			magnetism,
+			color,
+			vx,
+			vy,
 		};
 	};
 
 	const drawCircle = (circle: Circle, update = false) => {
 		if (context.current) {
-			const { x, y, translateX, translateY, size, alpha } = circle;
+			const { x, y, translateX, translateY, size, alpha, color } = circle;
 			context.current.translate(translateX, translateY);
+			
+			// Draw glow effect
+			const gradient = context.current.createRadialGradient(x, y, 0, x, y, size * 3);
+			gradient.addColorStop(0, color.replace(")", ", 0.6)").replace("hsl(", "hsla("));
+			gradient.addColorStop(1, color.replace(")", ", 0)").replace("hsl(", "hsla("));
+			context.current.fillStyle = gradient;
+			context.current.beginPath();
+			context.current.arc(x, y, size * 3, 0, 2 * Math.PI);
+			context.current.fill();
+			
+			// Draw main particle
 			context.current.beginPath();
 			context.current.arc(x, y, size, 0, 2 * Math.PI);
-			context.current.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+			context.current.fillStyle = color.replace(")", `, ${alpha})`).replace("hsl(", "hsla(");
 			context.current.fill();
+			
 			context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 
 			if (!update) {
@@ -168,6 +190,28 @@ export default function Particles({
 
 	const animate = () => {
 		clearContext();
+		
+		// Draw connecting lines between nearby particles
+		if (context.current) {
+			for (let i = 0; i < circles.current.length; i++) {
+				for (let j = i + 1; j < circles.current.length; j++) {
+					const dx = circles.current[i].x - circles.current[j].x;
+					const dy = circles.current[i].y - circles.current[j].y;
+					const distance = Math.sqrt(dx * dx + dy * dy);
+					
+					if (distance < 200) {
+						const alpha = (1 - distance / 200) * 0.2;
+						context.current.strokeStyle = `rgba(100, 200, 255, ${alpha})`;
+						context.current.lineWidth = 1;
+						context.current.beginPath();
+						context.current.moveTo(circles.current[i].x + circles.current[i].translateX, circles.current[i].y + circles.current[i].translateY);
+						context.current.lineTo(circles.current[j].x + circles.current[j].translateX, circles.current[j].y + circles.current[j].translateY);
+						context.current.stroke();
+					}
+				}
+			}
+		}
+		
 		circles.current.forEach((circle: Circle, i: number) => {
 			// Handle the alpha value
 			const edge = [
