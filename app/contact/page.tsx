@@ -46,9 +46,17 @@ export default function Example() {
 									{s.icon}
 								</span>{" "}
 								<div className="z-10 flex flex-col items-center max-w-full px-2">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display truncate max-w-xs">
-										{s.handle}
-									</span>
+									{s.label === "Email" ? (
+										<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display text-center leading-tight">
+											argyris.kalampoukas
+											<br />
+											@gmail.com
+										</span>
+									) : (
+										<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display truncate max-w-xs">
+											{s.handle}
+										</span>
+									)}
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 										{s.label}
 									</span>
