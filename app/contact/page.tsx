@@ -29,35 +29,35 @@ export default function Example() {
 	return (
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
+		<div className="container flex items-center justify-center min-h-screen px-3 sm:px-4 mx-auto">
+			<div className="grid w-full grid-cols-1 gap-6 sm:gap-8 mx-auto mt-20 sm:mt-0 sm:grid-cols-2 md:grid-cols-3 lg:gap-12 xl:gap-16">
 					{socials.map((s) => (
 						<Card key={s.label}>
 							<Link
 								href={s.href}
 								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
+								className="p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32"
 							>
 								<span
 									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
 									aria-hidden="true"
 								/>
-								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
+								<span className="relative z-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 text-xs sm:text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
 									{s.icon}
 								</span>{" "}
-								<div className="z-10 flex flex-col items-center max-w-full px-2">
-									{s.label === "Email" ? (
-										<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display text-center leading-tight">
-											argyris.kalampoukas
-											<br />
-											@gmail.com
-										</span>
-									) : (
-										<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display truncate max-w-xs">
-											{s.handle}
-										</span>
-									)}
-									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
+							<div className="z-10 flex flex-col items-center max-w-full px-2 sm:px-3">
+								{s.label === "Email" ? (
+									<span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display text-center leading-tight">
+										argyris.kalampoukas
+										<br />
+										@gmail.com
+									</span>
+								) : (
+									<span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display truncate max-w-xs">
+										{s.handle}
+									</span>
+								)}
+								<span className="mt-2 sm:mt-3 md:mt-4 text-xs sm:text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 										{s.label}
 									</span>
 								</div>

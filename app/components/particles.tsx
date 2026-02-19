@@ -201,7 +201,7 @@ export default function Particles({
 					
 					if (distance < 200) {
 						const alpha = (1 - distance / 200) * 0.2;
-						context.current.strokeStyle = `rgba(100, 200, 255, ${alpha})`;
+						context.current.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
 						context.current.lineWidth = 1;
 						context.current.beginPath();
 						context.current.moveTo(circles.current[i].x + circles.current[i].translateX, circles.current[i].y + circles.current[i].translateY);
