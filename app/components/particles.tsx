@@ -107,8 +107,8 @@ export default function Particles({
 		const dx = (Math.random() - 0.5) * 0.3;
 		const dy = (Math.random() - 0.5) * 0.3;
 		const magnetism = 0.1 + Math.random() * 6;
-		const hue = Math.random() * 60 + 180; // blue to cyan hues
-		const color = `hsl(${hue}, ${50 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
+		const hue = 0; // white
+		const color = `hsl(${hue}, 0%, ${70 + Math.random() * 25}%)`;
 		const vx = (Math.random() - 0.5) * 0.1;
 		const vy = (Math.random() - 0.5) * 0.1;
 		return {
