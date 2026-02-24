@@ -1,10 +1,16 @@
 "use client";
-import { Github, Mail, Instagram } from "lucide-react";
+import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const socials = [
+	{
+		icon: <Linkedin size={20} />,
+		href: "https://www.linkedin.com/in/argyris-kalampoukas-86510b3a8",
+		label: "LinkedIn",
+		handle: "Argyris kalampoukas",
+	},
 	{
 		icon: <Instagram size={20} />,
 		href: "https://instagram.com/argyris_kal",
@@ -27,10 +33,11 @@ const socials = [
 
 export default function Example() {
 	return (
-		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+		<div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
-		<div className="container flex items-center justify-center min-h-screen px-3 sm:px-4 mx-auto">
-			<div className="grid w-full grid-cols-1 gap-6 sm:gap-8 mx-auto mt-20 sm:mt-0 sm:grid-cols-2 md:grid-cols-3 lg:gap-12 xl:gap-16">
+
+			<main className="container px-3 sm:px-4 mx-auto min-h-screen flex items-center justify-center pt-24">
+				<div className="grid w-full grid-cols-1 gap-6 sm:gap-8 mx-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-12 xl:gap-16">
 					{socials.map((s) => (
 						<Card key={s.label}>
 							<Link
@@ -65,7 +72,7 @@ export default function Example() {
 						</Card>
 					))}
 				</div>
-			</div>
+			</main>
 		</div>
 	);
 }
