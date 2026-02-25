@@ -43,7 +43,7 @@ export default function Example() {
 							<Link
 								href={s.href}
 								target="_blank"
-							className={`p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 ${index === socials.length - 1 ? 'pb-48 sm:pb-32' : ''}`}
+							className={`p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 ${index === socials.length - 1 ? 'mb-48 sm:mb-32' : ''}`}
 							>
 								<span
 									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"

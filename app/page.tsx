@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black" style={{ overscrollBehavior: 'none' }}>
-      <nav className="my-2 sm:my-4 md:my-8 lg:my-12 animate-fade-in">
+      <nav className="mt-0 mb-1 sm:my-2 md:my-4 lg:my-6 animate-fade-in">
         <ul className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
           {navigation.map((item) => (
             <Link
@@ -42,7 +42,7 @@ export default function Home() {
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-2 sm:my-4 md:my-8 lg:my-12 text-center animate-fade-in">
+      <div className="mt-1 mb-0 sm:my-2 md:my-4 lg:my-6 text-center animate-fade-in">
         <h2 className="text-base sm:text-base md:text-lg lg:text-xl text-zinc-100 px-4">
             Quietly upgrading.
         </h2>
