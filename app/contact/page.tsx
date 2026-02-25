@@ -36,14 +36,14 @@ export default function Example() {
 		<div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
 
-			<main className="container px-3 sm:px-4 mx-auto min-h-screen flex items-center justify-center pt-24">
+			<main className="container px-3 sm:px-4 mx-auto min-h-screen flex items-center justify-center pt-24 pb-24">
 				<div className="grid w-full grid-cols-1 gap-6 sm:gap-8 mx-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-12 xl:gap-16">
 					{socials.map((s, index) => (
 						<Card key={s.label}>
 							<Link
 								href={s.href}
 								target="_blank"
-							className={`p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 ${index === socials.length - 1 ? 'mb-48 sm:mb-32' : ''}`}
+							className={`p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32`}
 							>
 								<span
 									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
