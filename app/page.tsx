@@ -18,7 +18,7 @@ export default function Home() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black" style={{ overscrollBehavior: 'none' }}>
       <nav className="my-4 sm:my-8 md:my-12 lg:my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
           {navigation.map((item) => (

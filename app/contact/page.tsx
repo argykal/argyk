@@ -38,12 +38,12 @@ export default function Example() {
 
 			<main className="container px-3 sm:px-4 mx-auto min-h-screen flex items-center justify-center pt-24">
 				<div className="grid w-full grid-cols-1 gap-6 sm:gap-8 mx-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-12 xl:gap-16">
-					{socials.map((s) => (
-						<Card key={s.label}>
+					{socials.map((s, index) => (
+						<Card key={s.label} className={index === socials.length - 1 ? "sm:col-span-2 md:col-span-2 lg:col-span-1" : ""}>
 							<Link
 								href={s.href}
 								target="_blank"
-								className="p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32"
+								className={`p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 relative flex flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 duration-700 group py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 ${index === socials.length - 1 ? 'pb-48 sm:pb-32' : ''}`}
 							>
 								<span
 									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"

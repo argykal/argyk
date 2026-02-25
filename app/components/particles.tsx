@@ -38,11 +38,15 @@ export default function Particles({
 	}, []);
 
 	// Adjust quantity for touch devices
-	const particleQuantity = isTouchDevice ? 12 : quantity;
+	const particleQuantity = isTouchDevice ? 20 : quantity;
 
 	useEffect(() => {
 		if (canvasRef.current) {
 			context.current = canvasRef.current.getContext("2d");
+			// Disable touch interactions on canvas
+			if (isTouchDevice) {
+				canvasRef.current.style.pointerEvents = "none";
+			}
 		}
 		initCanvas();
 		animate();
