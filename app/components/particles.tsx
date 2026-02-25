@@ -26,6 +26,20 @@ export default function Particles({
 	const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 	const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
 	const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+	const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+	// Detect touch device
+	useEffect(() => {
+		const touchDevice =
+			typeof window !== "undefined" &&
+			(navigator.maxTouchPoints > 0 ||
+				navigator.msMaxTouchPoints > 0 ||
+				window.matchMedia("(hover: none)").matches);
+		setIsTouchDevice(touchDevice);
+	}, []);
+
+	// Adjust quantity for touch devices
+	const particleQuantity = isTouchDevice ? 12 : quantity;
 
 	useEffect(() => {
 		if (canvasRef.current) {
@@ -38,11 +52,11 @@ export default function Particles({
 		return () => {
 			window.removeEventListener("resize", initCanvas);
 		};
-	}, []);
+	}, [isTouchDevice]);
 
 	useEffect(() => {
 		onMouseMove();
-	}, [mousePosition.x, mousePosition.y]);
+	}, [mousePosition.x, mousePosition.y, isTouchDevice]);
 
 	useEffect(() => {
 		initCanvas();
@@ -54,6 +68,13 @@ export default function Particles({
 	};
 
 	const onMouseMove = () => {
+		// Disable mouse tracking on touch devices
+		if (isTouchDevice) {
+			mouse.current.x = 0;
+			mouse.current.y = 0;
+			return;
+		}
+
 		if (canvasRef.current) {
 			const rect = canvasRef.current.getBoundingClientRect();
 			const { w, h } = canvasSize.current;
@@ -169,8 +190,7 @@ export default function Particles({
 
 	const drawParticles = () => {
 		clearContext();
-		const particleCount = quantity;
-		for (let i = 0; i < particleCount; i++) {
+		for (let i = 0; i < particleQuantity; i++) {
 			const circle = circleParams();
 			drawCircle(circle);
 		}
@@ -191,7 +211,8 @@ export default function Particles({
 	const animate = () => {
 		clearContext();
 		
-		// Draw connecting lines between nearby particles
+		// Draw connecting lines between nearby particles (reduced distance on touch devices)
+		const connectionDistance = isTouchDevice ? 100 : 200;
 		if (context.current) {
 			for (let i = 0; i < circles.current.length; i++) {
 				for (let j = i + 1; j < circles.current.length; j++) {
@@ -199,8 +220,8 @@ export default function Particles({
 					const dy = circles.current[i].y - circles.current[j].y;
 					const distance = Math.sqrt(dx * dx + dy * dy);
 					
-					if (distance < 200) {
-						const alpha = (1 - distance / 200) * 0.2;
+					if (distance < connectionDistance) {
+						const alpha = (1 - distance / connectionDistance) * 0.2;
 						context.current.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
 						context.current.lineWidth = 1;
 						context.current.beginPath();
