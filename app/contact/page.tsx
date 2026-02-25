@@ -39,7 +39,7 @@ export default function Example() {
 			<main className="container px-3 sm:px-4 mx-auto min-h-screen flex items-center justify-center pt-24">
 				<div className="grid w-full grid-cols-1 gap-6 sm:gap-8 mx-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-12 xl:gap-16">
 					{socials.map((s, index) => (
-						<Card key={s.label} className={index === socials.length - 1 ? "sm:col-span-2 md:col-span-2 lg:col-span-1" : ""}>
+						<Card key={s.label}>
 							<Link
 								href={s.href}
 								target="_blank"
