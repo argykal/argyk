@@ -33,7 +33,6 @@ export default function Particles({
 		const touchDevice =
 			typeof window !== "undefined" &&
 			(navigator.maxTouchPoints > 0 ||
-				navigator.msMaxTouchPoints > 0 ||
 				window.matchMedia("(hover: none)").matches);
 		setIsTouchDevice(touchDevice);
 	}, []);
