@@ -3,6 +3,7 @@ import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { Analytics } from "@vercel/analytics/next";
 
 const socials = [
 	{
