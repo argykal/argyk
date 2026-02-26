@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     default: "argyk",
     template: "%s | argyk",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Portfolio of Argyris Kalampoukas",
   openGraph: {
     title: "argyk",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "Portfolio of Argyris Kalampoukas",
     url: "https://argyk.dev",
     siteName: "argyk",
     images: [
