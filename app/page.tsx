@@ -37,12 +37,12 @@ export default function Home() {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={isMobile ? 30 : 150}
       />
-      <h1 className="py-2 sm:py-3 md:py-3.5 px-4 sm:px-0.5 z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text">
+      <h1 className="py-1 sm:py-3 md:py-3.5 px-4 sm:px-0.5 z-10 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display whitespace-nowrap bg-clip-text">
         argyk
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="mt-1 mb-0 sm:my-2 md:my-4 lg:my-6 text-center animate-fade-in">
+      <div className="mt-0 mb-0 sm:my-2 md:my-4 lg:my-6 text-center animate-fade-in">
         <h2 className="text-base sm:text-base md:text-lg lg:text-xl text-zinc-100 px-4">
             Quietly upgrading.
         </h2>
